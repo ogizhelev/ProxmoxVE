@@ -13,7 +13,8 @@
   "website": "https://teamspeak.com/",
   "logo": "https://cdn.jsdelivr.net/gh/selfhst/icons/svg/teamspeak-light.svg",
   "config_path": "",
-  "description": "TeamSpeak is a voice‑over‑IP (VoIP) application, primarily used by gamers and teams to chat in real‑time on dedicated servers. It delivers crystal‑clear, low‑latency voice communication.""install_methods": [
+  "description": "TeamSpeak is a voice‑over‑IP (VoIP) application, primarily used by gamers and teams to chat in real‑time on dedicated servers. It delivers crystal‑clear, low‑latency voice communication.",
+  "install_methods": [
     {
       "type": "default",
       "script": "ct/teamspeak-server.sh",
