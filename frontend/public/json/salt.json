@@ -4,7 +4,7 @@
   "categories": [
     19
   ],
-  "date_created": "2025-07-02",
+  "date_created": "2025-07-21",
   "type": "ct",
   "updateable": true,
   "privileged": false,
@@ -21,7 +21,7 @@
       "resources": {
         "cpu": 1,
         "ram": 1024,
-        "hdd": 2,
+        "hdd": 3,
         "os": "Debian",
         "version": "12"
       }
