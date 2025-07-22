@@ -33,7 +33,7 @@
   },
   "notes": [
     {
-      "text": "LinkStack can be updated via the user interface or with the command `update`.",
+      "text": "LinkStack can be updated via the user interface.",
       "type": "info"
     },
     {
