@@ -1,0 +1,116 @@
+name: Test JSON Files
+
+on:
+  push:
+    paths:
+      - "frontend/**"
+  pull_request:
+    paths:
+      - "frontend/**"
+
+jobs:
+  test-json-files:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Test JSON file syntax
+        run: |
+          echo "Testing JSON files for valid syntax..."
+
+          # Counter for tracking files
+          total_files=0
+          invalid_files=0
+
+          # Find and test all JSON files in frontend/public/json directory
+          while IFS= read -r -d '' file; do
+            ((total_files++))
+            echo "Testing: $file"
+            
+            if ! python3 -m json.tool "$file" > /dev/null 2>&1; then
+              echo "❌ Invalid JSON syntax in: $file"
+              ((invalid_files++))
+            else
+              echo "✅ Valid JSON: $file"
+            fi
+          done < <(find frontend/public/json -name "*.json" -type f -print0)
+
+          echo ""
+          echo "=== JSON Validation Summary ==="
+          echo "Total files tested: $total_files"
+          echo "Invalid files: $invalid_files"
+          echo "Valid files: $((total_files - invalid_files))"
+
+          if [ $invalid_files -gt 0 ]; then
+            echo ""
+            echo "❌ Found $invalid_files invalid JSON file(s). Please fix the syntax errors above."
+            exit 1
+          else
+            echo ""
+            echo "✅ All JSON files have valid syntax!"
+          fi
+
+      - name: Test JSON schema structure (basic)
+        run: |
+          echo "Running basic structure validation..."
+
+          # Create a temporary Python script for validation
+          cat > validate_json.py << 'EOF'
+          import json
+          import sys
+          import os
+
+          def validate_file(file_path):
+              try:
+                  with open(file_path, 'r') as f:
+                      data = json.load(f)
+                  
+                  # Basic checks
+                  if not isinstance(data, dict):
+                      print(f'⚠️  Warning: {file_path} is not a JSON object (root should be {{}})')
+                  else:
+                      print(f'✅ Structure OK: {file_path}')
+                      
+                      # Check for common required fields (customize as needed)
+                      if 'name' not in data and 'title' not in data:
+                          print(f'⚠️  Warning: {file_path} missing name/title field')
+                          
+              except json.JSONDecodeError as e:
+                  print(f'❌ JSON Parse Error in {file_path}: {str(e)}')
+                  return False
+              except Exception as e:
+                  print(f'❌ Error processing {file_path}: {str(e)}')
+                  return False
+              return True
+
+          if __name__ == '__main__':
+              file_path = sys.argv[1]
+              success = validate_file(file_path)
+              sys.exit(0 if success else 1)
+          EOF
+
+                    # Check if all JSON files can be parsed and have basic structure
+          validation_failed=false
+          while IFS= read -r -d '' file; do
+            echo "Checking structure of: $file"
+            if ! python3 validate_json.py "$file"; then
+              validation_failed=true
+            fi
+          done < <(find frontend/public/json -name "*.json" -type f -print0)
+
+          # Clean up temporary script
+          rm validate_json.py
+
+          if [ "$validation_failed" = true ]; then
+            echo "❌ Structure validation failed!"
+            exit 1
+          fi
+
+          echo "✅ All files passed basic structure validation!"
