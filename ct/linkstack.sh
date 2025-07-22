@@ -29,7 +29,7 @@ function update_script() {
     exit
   fi
   PHP_VERSION="8.3" PHP_MODULE="sqlite3" PHP_APACHE="YES" setup_php
-  msg_error "Adguard Home should be updated via the user interface."
+  msg_warn "LinkStack should be updated via the user interface."
   exit
 }
 
