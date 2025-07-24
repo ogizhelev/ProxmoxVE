@@ -42,7 +42,7 @@ if [[ "$CTTYPE" == "0" ]]; then
 fi
 msg_ok "Set Up Hardware Acceleration"
 
-msg_info "Installing Frigate v0.14.1 (Perseverance)"
+msg_info "Installing Frigate v0.15.2 (Perseverance)"
 cd ~
 mkdir -p /opt/frigate/models
 curl -fsSL "https://github.com/blakeblackshear/frigate/archive/refs/tags/v0.15.2.tar.gz" -o "frigate.tar.gz"
