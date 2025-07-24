@@ -2,7 +2,7 @@
 source <(curl -fsSL https://raw.githubusercontent.com/ogizhelev/ProxmoxVE/main/misc/build.func)
 # Copyright (c) 2021-2025 tteck
 # Author: havardthom | Co-Author: MickLesk (CanbiZ)
-# License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
+# License: MIT | https://github.com/ogizhelev/ProxmoxVE/raw/main/LICENSE
 # Source: https://ollama.com/
 
 APP="Ollama"

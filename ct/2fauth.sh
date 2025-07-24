@@ -2,7 +2,7 @@
 source <(curl -fsSL https://raw.githubusercontent.com/ogizhelev/ProxmoxVE/main/misc/build.func)
 # Copyright (c) 2021-2025 community-scripts ORG
 # Author: jkrgr0
-# License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
+# License: MIT | https://github.com/ogizhelev/ProxmoxVE/raw/main/LICENSE
 # Source: https://docs.2fauth.app/
 
 APP="2FAuth"

@@ -2,7 +2,7 @@
 source <(curl -fsSL https://raw.githubusercontent.com/ogizhelev/ProxmoxVE/main/misc/build.func)
 # Copyright (c) 2021-2025 tteck
 # Author: tteck (tteckster)
-# License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
+# License: MIT | https://github.com/ogizhelev/ProxmoxVE/raw/main/LICENSE
 # Source: https://www.tp-link.com/us/support/download/omada-software-controller/
 
 APP="Omada"

@@ -2,7 +2,7 @@
 source <(curl -fsSL https://raw.githubusercontent.com/ogizhelev/ProxmoxVE/main/misc/build.func)
 # Copyright (c) 2021-2025 community-scripts ORG
 # Author: bvdberg01
-# License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
+# License: MIT | https://github.com/ogizhelev/ProxmoxVE/raw/main/LICENSE
 # Source: https://github.com/oauth2-proxy/oauth2-proxy/
 
 APP="oauth2-proxy"

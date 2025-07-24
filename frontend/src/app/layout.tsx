@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   ],
   authors: [
     { name: "Bram Suurd", url: "https://github.com/BramSuurdje" },
-    { name: "Community Scripts", url: "https://github.com/Community-Scripts" },
+    { name: "Community Scripts", url: "https://github.com/ogizhelev" },
   ],
   creator: "Bram Suurd",
   publisher: "Community Scripts",
